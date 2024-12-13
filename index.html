@@ -36,9 +36,56 @@
       html.lt-ie-10 .ie-panel {
         display: block;
       }
+      #popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            border-radius: 8px;
+            display: none; /* Masqué par défaut */
+        }
+
+        #popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            display: none; /* Masqué par défaut */
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
     </style>
   </head>
   <body>
+    <div id="popup-overlay"></div>
+    <div id="popup">
+      <div><span onclick="closePopup()" style="font-size: 18px; font-weight: bold; cursor: pointer;">X</span></div>
+      <!-- <button onclick="closePopup()">Fermer</button> -->
+        <img
+        src="images/projet/5.jpeg"
+        alt=""
+        width="415"
+        height="800"
+      /> 
+    </div>
     <div class="ie-panel">
       <a href="http://windows.microsoft.com/en-US/internet-explorer/"
         ><img
@@ -177,7 +224,7 @@
                 </div>
               </div>
             </div>
-            <div class="swiper-slide" data-slide-bg="images/slide2.jpg">
+            <div class="swiper-slide" data-slide-bg="images/projet/2.jpeg">
               <div class="swiper-slide-caption section-md">
                 <div class="container">
                   <h1 style="color: #e96d11; text-align: start;" data-caption-animate="fadeInLeft" data-caption-delay="0">
@@ -200,7 +247,7 @@
                 </div>
               </div>
             </div>
-            <div class="swiper-slide" data-slide-bg="images/projet/1.jpeg">
+            <div class="swiper-slide" data-slide-bg="images/projet/6.jpeg">
               <div class="swiper-slide-caption section-md">
                 <div class="container">
                   <h1 style="color: #e96d11; text-align: start;" data-caption-animate="fadeInLeft" data-caption-delay="0">
@@ -256,7 +303,7 @@
                 <h3 style="color: #e96d11; text-align: start; font-weight: bold;">Qui sommes nous ?</h3>
                 <p style="text-align: justify;">PAVES IVOIRE : département filial de la société XILAM GROUPE dédié aux Travaux publics est spécialisée dans la conception, la vente, la pose et l’entretien de toute sorte de pavés, de bordures, de pierres 100% naturelles et la conception des bétons imprimés.
                   Nous intervenons également sur un large éventail des travaux de gros œuvres liés au terrassement, au compactage, a la construction, la rénovation, et au reprofilage des sols et routes.
-                  Exerçant depuis 2019 dans le domaine, Pavés ivoire a pour optique d’absorber la demande colossale du marché des pavés, des bordures et des pierres naturelles en fournissant un service de qualité dans les règles de l’art.
+                  Exerçant depuis 2019 dans le domaine, Pavés ivoire a pour optique d’absorber la demande colossale du marché des pavés, des bordures, des pierres naturelles et des bétons imprimé en fournissant un service de qualité dans les règles de l’art.
                   </p>
               </div>
               <div class="row row-30">
@@ -298,7 +345,7 @@
                   <img src="images/services/pave.png" style="width: 100px; height: 100px;" alt="">
                 </div>
                 <h6 class="box-icon-modern-big-title">
-                  La conception, la vente, la pose et l’entretien des pavés
+                  La conception, la vente, la pose et l’entretien de tout type de pavés
                 </h6>
                 <div class="box-icon-modern-decor"></div>
             </article>
@@ -1144,6 +1191,24 @@
     <!-- Javascript-->
     <script src="js/core.min.js"></script>
     <script src="js/script.js"></script>
+    <script>
+      // Fonction pour afficher le popup
+      function showPopup() {
+          document.getElementById('popup').style.display = 'block';
+          document.getElementById('popup-overlay').style.display = 'block';
+      }
+
+      // Fonction pour fermer le popup
+      function closePopup() {
+          document.getElementById('popup').style.display = 'none';
+          document.getElementById('popup-overlay').style.display = 'none';
+      }
+
+      // Afficher le popup au démarrage
+      window.onload = function () {
+          showPopup();
+      };
+  </script>
     <!-- coded by Himic-->
   </body>
 </html>
